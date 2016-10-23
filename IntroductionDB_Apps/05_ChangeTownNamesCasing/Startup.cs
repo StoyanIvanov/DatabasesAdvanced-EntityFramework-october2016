@@ -10,7 +10,7 @@ namespace _05_ChangeTownNamesCasing
         private static List<string> logger = new List<string>();
         static void Main()
         {
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
 
             sqlconnection.Open();
@@ -30,8 +30,7 @@ namespace _05_ChangeTownNamesCasing
 
         private static void ChangeTownNames(SqlCommand sqlCommand, string country)
         {
-            sqlCommand.CommandText = "USE MinionsDB " +
-                                     "UPDATE Towns " +
+            sqlCommand.CommandText = "UPDATE Towns " +
                                      "SET Name = UPPER(Name) " +
                                      "WHERE Country = '" + country + "'";
 

@@ -12,7 +12,7 @@ namespace _08_IncreaseMinionsAge
         {
             List<string> minionsNames = new List<string>();
             List<string> minionsIDs = new List<string>();
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
             var consoleInputIDs = Console.ReadLine().Trim().Split(new []{' '},StringSplitOptions.RemoveEmptyEntries);
 
@@ -20,8 +20,7 @@ namespace _08_IncreaseMinionsAge
             using (sqlconnection)
             {
                 SqlCommand commandExecutor = new SqlCommand("", sqlconnection);
-                commandExecutor.CommandText = "Use MinionsDB " +
-                                              "SELECT m.MinionID, m.Name " +
+                commandExecutor.CommandText = "SELECT m.MinionID, m.Name " +
                                               "FROM Minions AS m " +
                                               "WHERe m.MinionID = "+ string.Join("OR", consoleInputIDs);
 
@@ -42,8 +41,7 @@ namespace _08_IncreaseMinionsAge
                 for (int i = 0; i < minionsIDs.Count; i++)
                 {
                     minionsNames[i] = textInfo.ToTitleCase(minionsNames[i]);
-                    commandExecutor.CommandText = "UPDATE Minions " +
-                                                  "SET Name = '"+ minionsNames[i] + "' " +
+                    commandExecutor.CommandText = "SET Name = '"+ minionsNames[i] + "' " +
                                                   "WHERE MinionID = "+ minionsIDs[i];
                     commandExecutor.ExecuteNonQuery();
                 }

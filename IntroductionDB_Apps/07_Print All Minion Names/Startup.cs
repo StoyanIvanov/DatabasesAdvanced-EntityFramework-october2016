@@ -9,14 +9,14 @@ namespace _07_Print_All_Minion_Names
         static void Main()
         {
             List<string> minions = new List<string>();
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
 
             sqlconnection.Open();
             using (sqlconnection)
             {
                 SqlCommand commandExecutor = new SqlCommand("", sqlconnection);
-                commandExecutor.CommandText = "USE MinionsDB SELECT m.Name FROM Minions AS m";
+                commandExecutor.CommandText = "SELECT m.Name FROM Minions AS m";
                 SqlDataReader dataReader = commandExecutor.ExecuteReader();
 
                 if (dataReader.HasRows)
