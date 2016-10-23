@@ -8,7 +8,7 @@ namespace _03.GetMinionNames
     {
         static void Main()
         {
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
 
             sqlconnection.Open();
@@ -26,8 +26,7 @@ namespace _03.GetMinionNames
         {
             //Get Minion Names
             string inputID = Console.ReadLine();
-            commandExecutor.CommandText = "Use MinionsDB " +
-                                          "SELECT v.Name, m.Name, m.Age FROM Minions AS m " +
+            commandExecutor.CommandText = "SELECT v.Name, m.Name, m.Age FROM Minions AS m " +
                                           "INNER JOIN MinionsVillains AS mv " +
                                           "ON mv.VillianID =" + inputID +
                                           "INNER JOIN Villains AS v " +
