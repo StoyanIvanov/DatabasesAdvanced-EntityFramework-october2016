@@ -8,7 +8,7 @@ namespace _09_Increase_Age_Stored_Procedure
     {
         static void Main()
         {
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
             var consoleInputID = Console.ReadLine();
 
@@ -16,8 +16,7 @@ namespace _09_Increase_Age_Stored_Procedure
             using (sqlconnection)
             {
                 SqlCommand commandExecutor = new SqlCommand("", sqlconnection);
-                commandExecutor.CommandText = "Use MinionsDB " +
-                                              "EXEC usp_GetOlder @MinionID = " + consoleInputID;
+                commandExecutor.CommandText = "EXEC usp_GetOlder @MinionID = " + consoleInputID;
                 commandExecutor.ExecuteNonQuery();
 
                 commandExecutor.CommandText = "SELECT m.Name, m.Age " +

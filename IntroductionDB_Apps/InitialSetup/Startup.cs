@@ -7,7 +7,7 @@
     {
         static void Main()
         {
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
 
             sqlconnection.Open();
