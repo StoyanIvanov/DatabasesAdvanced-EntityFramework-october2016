@@ -16,7 +16,7 @@ namespace _04_AddMinion
         private static string minionID;
         static void Main()
         {
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
 
             sqlconnection.Open();
@@ -39,21 +39,18 @@ namespace _04_AddMinion
 
         public static void AddCity(SqlCommand commandExecutor, string town)
         {
-            commandExecutor.CommandText = "Use MinionsDB " +
-                                          "SELECT t.TownID FROM Towns AS t " +
+            commandExecutor.CommandText = "SELECT t.TownID FROM Towns AS t " +
                                           "WHERE t.Name = '" + town + "'";
             SqlDataReader dataReader = commandExecutor.ExecuteReader();
 
             if (!dataReader.HasRows)
             {
                 dataReader.Close();
-                commandExecutor.CommandText = string.Format("Use MinionsDB " +
-                                                            "INSERT INTO Towns (Name, Country) " +
+                commandExecutor.CommandText = string.Format("INSERT INTO Towns (Name, Country) " +
                                                             "VALUES ('{0}', ' ')", town);
                 commandExecutor.ExecuteNonQuery();
 
-                commandExecutor.CommandText = "Use MinionsDB " +
-                                              "SELECT TOP 1 t.TownID FROM Towns AS t " +
+                commandExecutor.CommandText = "SELECT TOP 1 t.TownID FROM Towns AS t " +
                                               "ORDER BY t.TownID DESC";
                 dataReader = commandExecutor.ExecuteReader();
                 dataReader.Read();
@@ -73,21 +70,18 @@ namespace _04_AddMinion
         public static void AddVillain(SqlCommand commandExecutor, string villainName)
         {
 
-            commandExecutor.CommandText = "Use MinionsDB " +
-                                          "SELECT v.VillainID, v.Name FROM Villains AS v " +
+            commandExecutor.CommandText = "SELECT v.VillainID, v.Name FROM Villains AS v " +
                                           "WHERE v.Name = '" + villainName + "'";
             SqlDataReader dataReader = commandExecutor.ExecuteReader();
             
             if (!dataReader.HasRows)
             {
                 dataReader.Close();
-                commandExecutor.CommandText = string.Format($"Use MinionsDB " +
-                                                            "INSERT INTO Villains (Name, Evilnes) " +
+                commandExecutor.CommandText = string.Format("INSERT INTO Villains (Name, Evilnes) " +
                                                             "VALUES ('{0}', 'evil')", villainName);
                 commandExecutor.ExecuteNonQuery();
 
-                commandExecutor.CommandText = "Use MinionsDB " +
-                                              "SELECT TOP 1 v.VillainID, v.Name FROM Villains AS v " +
+                commandExecutor.CommandText = "SELECT TOP 1 v.VillainID, v.Name FROM Villains AS v " +
                                               "ORDER BY v.VillainID DESC";
                 dataReader = commandExecutor.ExecuteReader();
                 dataReader.Read();
@@ -109,21 +103,18 @@ namespace _04_AddMinion
 
         public static void AddMinion(SqlCommand commandExecutor, string minionName, string minionAge)
         {
-            commandExecutor.CommandText = string.Format("Use MinionsDB " +
-                                                        "INSERT INTO Minions (Name, Age, TownID) " +
+            commandExecutor.CommandText = string.Format("INSERT INTO Minions (Name, Age, TownID) " +
                                                         "VALUES ('{0}', {1}, {2})", minionName, minionAge, city);
             commandExecutor.ExecuteNonQuery();
 
-            commandExecutor.CommandText = "Use MinionsDB " +
-                                          "SELECT TOP 1 MinionID FROM Minions AS m " +
+            commandExecutor.CommandText = "SELECT TOP 1 MinionID FROM Minions AS m " +
                                           "ORDER BY m.MinionID DESC";
             SqlDataReader dataReader = commandExecutor.ExecuteReader();
             dataReader.Read();
             minionID = dataReader[0].ToString();
             dataReader.Close();
 
-            commandExecutor.CommandText = string.Format("USE MinionsDB " +
-                                                        "INSERT INTO MinionsVillains(MinionsID, VillianID) " +
+            commandExecutor.CommandText = string.Format("INSERT INTO MinionsVillains(MinionsID, VillianID) " +
                                                         "VALUES ({0}, {1})", minionID, villainID);
             commandExecutor.ExecuteNonQuery();
             logger.Add($"Successfully added {minionName} to be minion of {Namevillain}.");
