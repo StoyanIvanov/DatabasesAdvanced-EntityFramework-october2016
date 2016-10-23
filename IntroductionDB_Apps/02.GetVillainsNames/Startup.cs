@@ -8,7 +8,7 @@ namespace _02.GetVillainsNames
     {
         static void Main()
         {
-            string connectionString = "Server=STOYAN-NOTEBOOK\\SQLSERVER; Database=master; Trusted_Connection=true";
+            string connectionString = Properties.Settings.Default.Connection;
             SqlConnection sqlconnection = new SqlConnection(connectionString);
 
             sqlconnection.Open();
@@ -22,8 +22,7 @@ namespace _02.GetVillainsNames
         public static void GetVillansNames(SqlCommand commandExecutor)
         {
             //Get Villains’ Names
-            commandExecutor.CommandText = "Use MinionsDB " +
-                                          "SELECT v.Name, COUNT(mv.MinionsID) FROM Villains AS v " +
+            commandExecutor.CommandText = "SELECT v.Name, COUNT(mv.MinionsID) FROM Villains AS v " +
                                           "INNER JOIN MinionsVillains AS mv " +
                                           "ON v.VillainID = mv.VillianID " +
                                           "GROUP BY v.Name " +
