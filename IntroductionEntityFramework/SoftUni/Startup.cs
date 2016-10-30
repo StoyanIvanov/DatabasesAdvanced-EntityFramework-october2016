@@ -131,6 +131,71 @@ namespace SoftUni
                 //        Console.WriteLine($"--{project.Name} {string.Format("{0:M/d/yyyy h:mm:ss tt}", project.StartDate)} {string.Format("{0:M/d/yyyy h:mm:ss tt}", project.EndDate)}");
                 //    }
                 //}
+
+                ////9.	Addresses by town name 
+                //
+                //IEnumerable<Address> addresses = context.Addresses
+                //    .Where(a=>a.Employees.Count(e=>e.AddressID==a.AddressID)>0)
+                //    .OrderByDescending(a=>a.Employees.Count)
+                //    .ThenBy(a=>a.Town.Name)
+                //    .Take(10);
+                //
+                //foreach (var address in addresses)
+                //{
+                //    Console.WriteLine($"{address.AddressText}, {address.Town.Name} - {address.Employees.Count} employees");
+                //}
+
+                ////10.	Employee with id 147 sorted by project names 
+                //
+                //Employee employee = context.Employees.Find(147);
+                //Console.WriteLine($"{employee.FirstName} {employee.LastName} {employee.JobTitle}");
+                //foreach (var project in employee.Projects.OrderBy(p=>p.Name))
+                //{
+                //    Console.WriteLine($"{project.Name}");
+                //}
+
+                ////11.	Departments with more than 5 employees
+                //
+                //IEnumerable<Department> departments = context.Departments
+                //    .Where(d=>d.Employees.Count>5)
+                //    .OrderBy(d=>d.Employees.Count);
+                //foreach (var department in departments)
+                //{
+                //    var manager = context.Employees
+                //        .FirstOrDefault(e => e.EmployeeID == department.ManagerID);
+                //    Console.WriteLine($"{department.Name} {manager.FirstName}");
+                //    foreach (var employee in department.Employees)
+                //    {
+                //        Console.WriteLine($"{employee.FirstName} {employee.LastName} {employee.JobTitle}");
+                //    }
+                //}
+
+                ////15.	Find Latest 10 Projects
+                //
+                //IEnumerable<Project> projects = context.Projects.OrderByDescending(p => p.StartDate).Take(10);
+                //foreach (var project in projects)
+                //{
+                //    Console.WriteLine($"{project.Name} {project.Description} {string.Format("{0:M/d/yyyy h:mm:ss tt}", project.StartDate)} {string.Format("{0:M/d/yyyy h:mm:ss tt}", project.EndDate)}");
+                //}
+
+                ////16.	Increase Salaries
+                //
+                //IEnumerable<Employee> employees = context.Employees
+                //    .Where(e => e.Department.Name == "Engineering" || e.Department.Name == "Tool Design" || e.Department.Name == "Marketing" || e.Department.Name == "Information Services");
+                //foreach (var employee in employees)
+                //{
+                //    employee.Salary = employee.Salary * (decimal)1.12;
+                //    Console.WriteLine($"{employee.FirstName} {employee.LastName} (${employee.Salary})");
+                //}
+                //context.SaveChanges();
+
+                ////18.	Find Employees by First Name starting with ‘SA’
+                //
+                IEnumerable<Employee> employees = context.Employees.Where(e => e.FirstName.ToUpper().Substring(0, 2) == "SA");
+                foreach (var employee in employees)
+                {
+                    Console.WriteLine($"{employee.FirstName} {employee.LastName} - {employee.JobTitle} - (${employee.Salary})");
+                }
             }
         }
     }
