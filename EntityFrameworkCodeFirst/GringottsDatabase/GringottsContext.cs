@@ -17,7 +17,7 @@ namespace GringottsDatabase
         public GringottsContext()
             : base("name=GringottsContext")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<GringottsContext>() );
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<GringottsContext>());
         }
 
         public DbSet<WizardDeposits> WizardDepositses { get; set; }
