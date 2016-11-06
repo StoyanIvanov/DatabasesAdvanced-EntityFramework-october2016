@@ -17,14 +17,12 @@ namespace GringottsDatabase
         public GringottsContext()
             : base("name=GringottsContext")
         {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<GringottsContext>() );
         }
 
         public DbSet<WizardDeposits> WizardDepositses { get; set; }
         public DbSet<User> Users { get; set; }
-        // Add a DbSet for each entity type that you want to include in your model. For more information 
-        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+      
     }
 
     //public class MyEntity
