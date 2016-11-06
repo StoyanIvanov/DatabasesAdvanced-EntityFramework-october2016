@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GringottsDatabase.Models
 {
@@ -9,7 +10,7 @@ namespace GringottsDatabase.Models
         private string firstName;
         private string lastName;
         private string notes;
-        private int age;
+        private int? age;
         private string magicWandCreator;
         private int magicWandSize;
         private string depositGroup;
@@ -24,27 +25,28 @@ namespace GringottsDatabase.Models
         }
 
         [Key]
+        [Column(Order = 1)] //Use this for two or more composite primary KEY
         public int Id
         {
             get { return this.id; }
             set { this.id = value; }
         }
 
-        [MaxLength(50)]
+        [StringLength(50)]
         public string FirstName
         {
             get { return this.firstName; }
             set { this.firstName = value; }
         }
 
-        [MaxLength(60)]
+        [StringLength(60)]
         public string LastName
         {
             get { return this.lastName; }
             set { this.lastName = value; }
         }
 
-        [MaxLength(1000)]
+        [StringLength(1000)]
         public string Notes
         {
             get { return this.notes; }
@@ -52,12 +54,12 @@ namespace GringottsDatabase.Models
         }
 
         [Required]
-        public int Age
+        public int? Age
         {
             get { return this.age; }
             set
             {
-                if (value<0)
+                if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("The age cannot be negatve");
                 }
@@ -65,21 +67,21 @@ namespace GringottsDatabase.Models
             }
         }
 
-        [MaxLength(100)]
+        [StringLength(100)]
         public string MagicWandCreator
         {
             get { return this.magicWandCreator; }
             set { this.magicWandCreator = value; }
         }
 
-        [Range(1,32767)]
+        [Range(1, 32767)]
         public int MagicWandSize
         {
             get { return this.magicWandSize; }
             set { this.magicWandSize = value; }
         }
 
-        [MaxLength(20)]
+        [StringLength(20)]
         public string DepositGroup
         {
             get { return this.depositGroup; }
