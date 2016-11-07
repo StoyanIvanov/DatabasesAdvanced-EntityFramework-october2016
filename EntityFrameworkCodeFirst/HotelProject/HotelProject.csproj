@@ -60,7 +60,14 @@
       <DependentUpon>201611061957203_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BedTypes.cs" />
+    <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\Occupancies.cs" />
+    <Compile Include="Models\Rooms.cs" />
+    <Compile Include="Models\RoomStatuses.cs" />
+    <Compile Include="Models\RoomTypes.cs" />
+    <Compile Include="Payments.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
