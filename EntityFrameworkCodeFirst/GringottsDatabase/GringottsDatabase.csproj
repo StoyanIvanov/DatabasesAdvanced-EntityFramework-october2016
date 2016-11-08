@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E561B51B-8388-4D88-9FE7-C7C622D11C5B}</ProjectGuid>
+    <ProjectGuid>{3562A998-7A6E-4C72-927E-83088A03045A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GringottsDatabase</RootNamespace>
@@ -55,6 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GringottsContext.cs" />
+    <Compile Include="Migrations\201611061948190_InitialCreate.cs" />
+    <Compile Include="Migrations\201611061948190_InitialCreate.Designer.cs">
+      <DependentUpon>201611061948190_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611081951270_secondMigration.cs" />
+    <Compile Include="Migrations\201611081951270_secondMigration.Designer.cs">
+      <DependentUpon>201611081951270_secondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Town.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\WizardDeposits.cs" />
     <Compile Include="Startup.cs" />
@@ -63,6 +73,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611061948190_InitialCreate.resx">
+      <DependentUpon>201611061948190_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611081951270_secondMigration.resx">
+      <DependentUpon>201611081951270_secondMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

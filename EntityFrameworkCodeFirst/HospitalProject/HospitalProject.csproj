@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A888392-AFDC-494C-B49E-4832F7A2DCAC}</ProjectGuid>
+    <ProjectGuid>{6348B81D-6F28-4FAF-ACCA-BE0285774BB1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SalesProject</RootNamespace>
-    <AssemblyName>SalesProject</AssemblyName>
+    <RootNamespace>HospitalProject</RootNamespace>
+    <AssemblyName>HospitalProject</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,27 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201611072049548_firstMigration.cs" />
-    <Compile Include="Migrations\201611072049548_firstMigration.Designer.cs">
-      <DependentUpon>201611072049548_firstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Sale.cs" />
-    <Compile Include="Models\StoreLocation.cs" />
-    <Compile Include="SalesContext.cs" />
+    <Compile Include="HospitalContext.cs" />
+    <Compile Include="Models\Diagnose.cs" />
+    <Compile Include="Models\Medicament.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Visitation.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611072049548_firstMigration.resx">
-      <DependentUpon>201611072049548_firstMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

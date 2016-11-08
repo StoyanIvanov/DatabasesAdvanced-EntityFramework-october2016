@@ -1,3 +1,5 @@
+using SalesProject.Models;
+
 namespace SalesProject
 {
     using System;
@@ -15,9 +17,12 @@ namespace SalesProject
         public SalesContext()
             : base("name=SalesContext")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SalesContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<SalesContext>());
         }
 
-
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Sale> Sales { get; set; }
+        public DbSet<StoreLocation> StoreLocations { get; set; }
     }
 }

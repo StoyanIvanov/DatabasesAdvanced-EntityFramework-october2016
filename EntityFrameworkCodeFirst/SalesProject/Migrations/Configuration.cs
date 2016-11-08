@@ -1,3 +1,5 @@
+using SalesProject.Models;
+
 namespace SalesProject.Migrations
 {
     using System;
@@ -11,22 +13,24 @@ namespace SalesProject.Migrations
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
+            
         }
 
         protected override void Seed(SalesProject.SalesContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (!context.Customers.Any())
+            {
+                Customer customer = new Customer
+                {
+                    Name = "Pesho",
+                    Email = "email@email.email",
+                    CreditCardNumber = "1234567890"
+                };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+                context.Customers.Add(customer);
+                context.SaveChanges();
+            }
+            
         }
     }
 }

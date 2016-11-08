@@ -17,12 +17,12 @@ namespace GringottsDatabase
         public GringottsContext()
             : base("name=GringottsContext")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<GringottsContext>());
         }
 
         public DbSet<WizardDeposits> WizardDepositses { get; set; }
         public DbSet<User> Users { get; set; }
-      
+
+        public DbSet<Town> Towns { get; set; }
     }
 
     //public class MyEntity

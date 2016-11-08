@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Data;
 using GringottsDatabase.Models;
 
 namespace GringottsDatabase
 {
-    class Startup
+    public class Startup
     {
-        public static void Main()
+        static void Main()
         {
+
             GringottsContext context = new GringottsContext();
             WizardDeposits deposit = new WizardDeposits
             {
@@ -22,7 +22,7 @@ namespace GringottsDatabase
                 DepositCharge = 0.2,
                 IsDepositeExpired = false
             };
-            User user=new User
+            User user = new User
             {
                 Username = "saivanov",
                 Password = "Yahoocom@2",
