@@ -55,9 +55,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HospitalContext.cs" />
+    <Compile Include="Migrations\201611082025163_InitialCreate.cs" />
+    <Compile Include="Migrations\201611082025163_InitialCreate.Designer.cs">
+      <DependentUpon>201611082025163_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611082031198_firstMigration.cs" />
+    <Compile Include="Migrations\201611082031198_firstMigration.Designer.cs">
+      <DependentUpon>201611082031198_firstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Diagnose.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Medicament.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\Visitation.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +76,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611082025163_InitialCreate.resx">
+      <DependentUpon>201611082025163_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611082031198_firstMigration.resx">
+      <DependentUpon>201611082031198_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

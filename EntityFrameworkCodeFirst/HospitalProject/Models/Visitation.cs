@@ -17,5 +17,7 @@ namespace HospitalProject.Models
         public string Comments { get; set; }
 
         public Patient Patient { get; set; }
+
+        public Doctor Doctor { get; set; }
     }
 }

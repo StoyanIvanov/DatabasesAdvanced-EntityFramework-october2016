@@ -36,6 +36,7 @@ namespace HospitalProject.Models
         public string Address { get; set; }
 
         [Required]
+
         public string Email
         {
             get { return this.email; }
