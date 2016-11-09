@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\Email.cs" />
+    <Compile Include="Attributes\Password.cs" />
     <Compile Include="GringottsContext.cs" />
     <Compile Include="Migrations\201611061948190_InitialCreate.cs" />
     <Compile Include="Migrations\201611061948190_InitialCreate.Designer.cs">
@@ -62,6 +64,10 @@
     <Compile Include="Migrations\201611081951270_secondMigration.cs" />
     <Compile Include="Migrations\201611081951270_secondMigration.Designer.cs">
       <DependentUpon>201611081951270_secondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611091959173_CreateNewAttributes.cs" />
+    <Compile Include="Migrations\201611091959173_CreateNewAttributes.Designer.cs">
+      <DependentUpon>201611091959173_CreateNewAttributes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Town.cs" />
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611081951270_secondMigration.resx">
       <DependentUpon>201611081951270_secondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611091959173_CreateNewAttributes.resx">
+      <DependentUpon>201611091959173_CreateNewAttributes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
