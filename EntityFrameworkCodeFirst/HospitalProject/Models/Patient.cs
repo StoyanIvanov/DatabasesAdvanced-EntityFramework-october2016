@@ -57,13 +57,13 @@ namespace HospitalProject.Models
         [Column(TypeName = "image")]
         public byte[] Image { get; set; }
 
-        public ICollection<Visitation> Visitations { get; set; }
+        public virtual ICollection<Visitation> Visitations { get; set; }
 
 
-        public ICollection<Diagnose> Diagnoses { get; set; }
+        public virtual ICollection<Diagnose> Diagnoses { get; set; }
 
 
-        public ICollection<Medicament> Medicaments { get; set; }
+        public virtual ICollection<Medicament> Medicaments { get; set; }
 
     }
 }
