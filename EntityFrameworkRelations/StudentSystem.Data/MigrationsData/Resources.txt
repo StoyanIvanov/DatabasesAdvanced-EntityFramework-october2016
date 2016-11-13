@@ -1,0 +1,10 @@
+Resource1,0,https://www.url.com,1
+Resource2,3,https://www.url.com,5
+Resource3,3,https://www.url.com,8
+Resource4,1,https://www.url.com,7
+Resource5,2,https://www.url.com,4
+Resource6,1,https://www.url.com,2
+Resource7,1,https://www.url.com,10
+Resource8,0,https://www.url.com,3
+Resource9,2,https://www.url.com,3
+Resource10,3,https://www.url.com,6

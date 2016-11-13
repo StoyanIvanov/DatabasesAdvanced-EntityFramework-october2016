@@ -1,9 +1,0 @@
-1.VS-View-Other Windows-Package Manager Console
-2.Select Default project - current project
-3.Execute command: Enable-Migrations
-4.Execute command: Add-Migration -IgnoreChanges
-5.In Configuration.cs change AutomaticMigrationEnabled = true
-6.In Configuration.cs added new AutomaticMigrationDataLossAllowed = true
-
-
-7.Execute command: Update-Database (every time when make changes on the database)
