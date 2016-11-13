@@ -21,21 +21,26 @@ namespace StudentSystem.ConsoleClient
 
             //Lists all students and their homework submissions. Print only their names and for each homework - 
             //content and content - type.
-            /*var students = context.Students.ToList();
-            foreach (var student in students)
-            {
-                Console.WriteLine($"{student.Name}");
-                foreach (var homework in student.Homeworks)
-                {
-                    Console.WriteLine($"   -{homework.Content} {homework.ContentType}");
-                }
-            }*/
+            //
+            //var students = context.Students.ToList();
+            //foreach (var student in students)
+            //{
+            //    Console.WriteLine($"{student.Name}");
+            //    foreach (var homework in student.Homeworks)
+            //    {
+            //        Console.WriteLine($"   -{homework.Content} {homework.ContentType}");
+            //    }
+            //}
 
             //2.	List all courses with their corresponding resources. Print the course name and description and everything for each resource. 
             //Order the courses by start date (ascending), then by end date (descending).
+            //
             //using (context)
             //{
-            //    var cources = context.Courses.OrderBy(c=>c.StartDate).ThenByDescending(c=>c.EndDate);
+            //    var cources = context.Courses
+            //                         .OrderBy(c=>c.StartDate)
+            //                         .ThenByDescending(c=>c.EndDate);
+            //
             //    foreach (var cource in cources)
             //    {
             //        Console.WriteLine($"{cource.Name} {cource.Description}");
@@ -51,12 +56,11 @@ namespace StudentSystem.ConsoleClient
             //
             //using (context)
             //{
-            //    var cources =
-            //        context.Courses
-            //        .Where(c => c.Resources.Count > 5)
-            //        .OrderByDescending(c => c.Resources.Count)
-            //        .ThenByDescending(c => c.StartDate)
-            //        .Select(c => new {c.Name, c.Resources.Count});
+            //    var cources = context.Courses
+            //                         .Where(c => c.Resources.Count > 5)
+            //                         .OrderByDescending(c => c.Resources.Count)
+            //                         .ThenByDescending(c => c.StartDate)
+            //                         .Select(c => new {c.Name, c.Resources.Count});
             //
             //    foreach (var cource in cources)
             //    {
