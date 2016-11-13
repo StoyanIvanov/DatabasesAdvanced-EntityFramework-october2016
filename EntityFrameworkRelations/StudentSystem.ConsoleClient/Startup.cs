@@ -90,6 +90,19 @@ namespace StudentSystem.ConsoleClient
             //    }
             //}
 
+            //5.	For each student, calculate the number of courses he/she has enrolled in, 
+            //the total price of these courses and the average price per course for the student. Print the student name, number of courses, total price and average price. 
+            //Order the results by total price (descending), then by number of courses(descending) and then by the student's name (ascending).
+            //
+            //using (context)
+            //{
+            //    var students = context.Students
+            //                          .Select(s => new {s.Name, s.Courses.Count, totalPrice=s.Courses.Sum(c => c.Price), avgPrice = s.Courses.Average(c=>c.Price) });
+            //    foreach (var student in students)
+            //    {
+            //        Console.WriteLine($"{student.Name} / {student.Count} / {student.totalPrice} / {student.avgPrice}");
+            //    }
+            //}
 
         }
     }
