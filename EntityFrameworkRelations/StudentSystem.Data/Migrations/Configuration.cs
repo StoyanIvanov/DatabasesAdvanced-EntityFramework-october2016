@@ -87,7 +87,6 @@ namespace StudentSystem.Data.Migrations
                         var resourceName = $"{resourceData[0]}";
                         Resource.ResourcesTypes resourceType = (Resource.ResourcesTypes)int.Parse(resourceData[1]);
                         var resourceURL = resourceData[2];
-                        var resourceId = resourceData[3];
 
                         context.Resources.Add(new Resource()
                         {
