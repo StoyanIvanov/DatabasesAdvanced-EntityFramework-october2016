@@ -1,3 +1,4 @@
+using GringottsDatabase.Attributes;
 using GringottsDatabase.Models;
 
 namespace GringottsDatabase
@@ -21,8 +22,15 @@ namespace GringottsDatabase
 
         public DbSet<WizardDeposits> WizardDepositses { get; set; }
         public DbSet<User> Users { get; set; }
-
         public DbSet<Town> Towns { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasMany(m => m.Users).WithMany();
+
+        }
+
     }
 
     //public class MyEntity

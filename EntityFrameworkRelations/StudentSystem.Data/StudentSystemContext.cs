@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using StudentSystem.Models;
 
 namespace StudentSystem.Data
@@ -24,6 +25,7 @@ namespace StudentSystem.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Homework> Homeworks { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<ScoolLicense> Licenses { get; set; }
 
 
 

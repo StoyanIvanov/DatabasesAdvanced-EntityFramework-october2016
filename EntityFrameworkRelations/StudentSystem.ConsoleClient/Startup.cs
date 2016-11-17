@@ -74,21 +74,23 @@ namespace StudentSystem.ConsoleClient
             //Print the course name, start and end date, course duration (difference between end and start date) and number of students enrolled.
             //Order the results by the number of students enrolled(in descending order), then by duration(descending).
             //
-            //var date=new DateTime(2016,2,28);
-            //using (context)
-            //{
-            //    var cources = context.Courses
-            //                         .Where(c=>c.StartDate<=date && c.EndDate<=date && c.Students.Count>0)
-            //                         .Select(c=>new {c.Name,c.StartDate,c.EndDate,SqlFunctions.DateDiff("dd", c.StartDate, c.EndDate).Value, c.Students.Count})
-            //                         .OrderByDescending(c=>c.Count)
-            //                         .ThenByDescending(c=>c.Value)
-            //                         .ToList();
-            //
-            //    foreach (var cource in cources)
-            //    {
-            //        Console.WriteLine($"{cource.Name} {cource.StartDate} {cource.EndDate} {cource.Value} {cource.Count}");
-            //    }
-            //}
+            var date=new DateTime(2016,2,28);
+            using (context)
+            {
+                var cources = context.Courses
+                                     .Where(c=>c.StartDate<=date && c.EndDate<=date && c.Students.Count>0)
+                                     .Select(c=>new {c.Name,c.StartDate,c.EndDate,SqlFunctions.DateDiff("dd", c.StartDate, c.EndDate).Value, c.Students.Count})
+                                     .OrderByDescending(c=>c.Count)
+                                     .ThenByDescending(c=>c.Value)
+                                     .ToList();
+            
+                foreach (var cource in cources)
+                {
+                    Console.WriteLine($"{cource.Name} {cource.StartDate.Date} {cource.EndDate} {cource.Value} {cource.Count}");
+                }
+                var dateNow=DateTime.Now;
+                Console.WriteLine(dateNow.ToString("dd MMMM yyyy"));
+            }
 
             //5.	For each student, calculate the number of courses he/she has enrolled in, 
             //the total price of these courses and the average price per course for the student. Print the student name, number of courses, total price and average price. 

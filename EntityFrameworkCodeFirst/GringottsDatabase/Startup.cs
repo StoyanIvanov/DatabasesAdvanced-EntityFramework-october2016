@@ -1,4 +1,5 @@
 ﻿using System;
+using GringottsDatabase.Attributes;
 using GringottsDatabase.Models;
 
 namespace GringottsDatabase
@@ -32,9 +33,17 @@ namespace GringottsDatabase
                 RegisteredOn = DateTime.Now
             };
 
+            Album album = new Album()
+            {
+                Name = "FirstAlbum",
+                
+            };
+
+            user.Albums.Add(album);
+            //context.WizardDepositses.Add(deposit);
             context.Users.Add(user);
-            context.WizardDepositses.Add(deposit);
             context.SaveChanges();
+
 
         }
     }

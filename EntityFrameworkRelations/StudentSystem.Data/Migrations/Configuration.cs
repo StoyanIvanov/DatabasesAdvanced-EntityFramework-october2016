@@ -18,7 +18,6 @@ namespace StudentSystem.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "StudentSystem.Data.StudentSystemContext";
         }
 

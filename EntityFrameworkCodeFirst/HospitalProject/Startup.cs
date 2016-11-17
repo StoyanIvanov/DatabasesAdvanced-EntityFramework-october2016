@@ -12,6 +12,7 @@ namespace HospitalProject
             {
                 Name = "Analgin"
             };
+            
 
             context.Medicaments.Add(medicament);
             context.SaveChanges();

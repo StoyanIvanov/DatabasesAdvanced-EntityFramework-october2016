@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace StudentSystem.Models
@@ -6,12 +8,18 @@ namespace StudentSystem.Models
 
     public class Resource
     {
+        ICollection<ScoolLicense> licenses;
         public enum ResourcesTypes
         {
             video,
             presentation,
             document,
             other
+        }
+
+        public Resource()
+        {
+            this.licenses = new HashSet<ScoolLicense>();
         }
 
         [Key]
@@ -27,5 +35,12 @@ namespace StudentSystem.Models
         public string URL { get; set; }
 
         public virtual Course Cource { get; set; }
+
+        public virtual ICollection<ScoolLicense> Licenses
+        {
+            get { return this.licenses; }
+            set { this.licenses = value; }
+        }
+
     }
 }
